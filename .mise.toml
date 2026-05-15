@@ -1,0 +1,32 @@
+[tools]
+go = "1.26.2"
+golangci-lint = "2"
+
+[tasks.fmt]
+description = "Format Go source code"
+run = "golangci-lint fmt --diff ./..."
+
+[tasks.lint]
+description = "Run golangci-lint"
+run = "golangci-lint run"
+
+[tasks.test]
+description = "Run all tests"
+run = "go test -count=1 ./..."
+
+[tasks.build]
+description = "Build the main library"
+run = "go build ./..."
+
+[tasks.example]
+description = "Build the basic example"
+run = "go build -o examples/basic/basic ./examples/basic/"
+depends = ["build"]
+
+[tasks.clean]
+description = "Remove build artifacts"
+run = "rm -f examples/basic/basic"
+
+[tasks.check]
+description = "CI gate: format, lint, test"
+depends = ["fmt", "lint", "test"]

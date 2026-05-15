@@ -1,0 +1,30 @@
+version: "2"
+
+run:
+  go: "1.26"
+
+linters:
+  enable:
+    - errcheck
+    - govet
+    - staticcheck
+    - unused
+    - ineffassign
+    - misspell
+    - revive
+
+linters-settings:
+  revive:
+    rules:
+      - name: exported
+
+issues:
+  exclude-rules:
+    - path: types\.go
+      linters:
+        - revive
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
