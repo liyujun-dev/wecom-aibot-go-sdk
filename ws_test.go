@@ -1,7 +1,6 @@
 package aibot_test
 
 import (
-	"context"
 	"encoding/json"
 	"log/slog"
 	"net/http"
@@ -123,8 +122,7 @@ func TestWsConnectionManagerReplyAndAck(t *testing.T) {
 
 	time.Sleep(100 * time.Millisecond)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
-	defer cancel()
+	ctx := t.Context()
 
 	ackFrame, err := wsManager.SendReply(ctx, "req_001",
 		map[string]string{"msgtype": "text", "text": `{"content":"hello"}`},

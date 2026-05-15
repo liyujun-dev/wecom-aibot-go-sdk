@@ -1,7 +1,6 @@
 package aibot_test
 
 import (
-	"context"
 	"encoding/json"
 	"strings"
 	"sync"
@@ -82,8 +81,7 @@ func TestClientConnect(t *testing.T) {
 		aibot.WithHandler(handler),
 	)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
-	defer cancel()
+	ctx := t.Context()
 
 	if err := client.Connect(ctx); err != nil {
 		t.Fatalf("Connect: %v", err)
@@ -137,8 +135,7 @@ func TestClientReply(t *testing.T) {
 		aibot.WithHandler(handler),
 	)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
-	defer cancel()
+	ctx := t.Context()
 
 	if err := client.Connect(ctx); err != nil {
 		t.Fatalf("Connect: %v", err)
@@ -200,8 +197,7 @@ func TestClientReceiveMessage(t *testing.T) {
 		aibot.WithHandler(handler),
 	)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
-	defer cancel()
+	ctx := t.Context()
 
 	if err := client.Connect(ctx); err != nil {
 		t.Fatalf("Connect: %v", err)
@@ -277,8 +273,7 @@ func TestClientReplyStream(t *testing.T) {
 		aibot.WithHandler(handler),
 	)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
-	defer cancel()
+	ctx := t.Context()
 
 	if err := client.Connect(ctx); err != nil {
 		t.Fatalf("Connect: %v", err)
