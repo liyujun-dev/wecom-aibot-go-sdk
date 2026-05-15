@@ -175,7 +175,9 @@ func TestClientReceiveMessage(t *testing.T) {
 				Errcode: 0,
 				Errmsg:  "ok",
 			}
+			connMu.Lock()
 			writeFrame(conn, resp)
+			connMu.Unlock()
 		}
 		for {
 			f, err := readFrame(conn)
@@ -187,7 +189,9 @@ func TestClientReceiveMessage(t *testing.T) {
 				Errcode: 0,
 				Errmsg:  "ok",
 			}
+			connMu.Lock()
 			writeFrame(conn, ack)
+			connMu.Unlock()
 		}
 	})
 
