@@ -14,6 +14,13 @@ run = "golangci-lint run"
 description = "Run all tests"
 run = "go test -count=1 ./..."
 
+[tasks."test:cover"]
+description = "Run tests with coverage report"
+run = """
+go test -count=1 -coverprofile=coverage.out ./... && \
+go tool cover -func=coverage.out
+"""
+
 [tasks.build]
 description = "Build the main library"
 run = "go build ./..."

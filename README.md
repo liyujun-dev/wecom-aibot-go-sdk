@@ -1,6 +1,9 @@
 # wecom-aibot-go-sdk
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/liyujun/wecom-aibot-go-sdk.svg)](https://pkg.go.dev/github.com/liyujun/wecom-aibot-go-sdk)
+[![Go Report Card](https://goreportcard.com/badge/github.com/liyujun/wecom-aibot-go-sdk)](https://goreportcard.com/report/github.com/liyujun/wecom-aibot-go-sdk)
+[![codecov](https://codecov.io/gh/liyujun/wecom-aibot-go-sdk/branch/main/graph/badge.svg)](https://codecov.io/gh/liyujun/wecom-aibot-go-sdk)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 企业微信智能机器人 Go SDK —— 基于 WebSocket 长连接通道，提供消息收发、流式回复、模板卡片、事件回调、文件下载解密、媒体素材上传等核心能力。
 
